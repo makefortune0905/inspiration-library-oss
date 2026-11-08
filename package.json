@@ -1,0 +1,69 @@
+{
+  "name": "inspiration-library",
+  "productName": "灵感库",
+  "version": "0.2.0",
+  "description": "A local, personal visual library for designers",
+  "author": "makefortune0905",
+  "private": true,
+  "main": "out/main/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/library.test.ts tests/ai.test.ts",
+    "test:desktop": "pnpm build && playwright test",
+    "icon": "node scripts/icon.mjs",
+    "postinstall": "node node_modules/electron/install.js",
+    "package:mac": "pnpm build && electron-builder --mac --arm64 --dir"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sharp": "^0.35.4",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "electron": "44.4.1",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0"
+  },
+  "build": {
+    "appId": "local.inspiration.library",
+    "productName": "灵感库",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/sharp/**/*",
+      "node_modules/@img/**/*"
+    ],
+    "mac": {
+      "target": "dir",
+      "category": "public.app-category.graphics-design",
+      "icon": "build/icon.icns",
+      "identity": null,
+      "hardenedRuntime": false
+    },
+    "npmRebuild": false
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@11.0.0",
+  "engines": {
+    "node": ">=22.22.0"
+  }
+}

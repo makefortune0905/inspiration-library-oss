@@ -1,0 +1,22 @@
+node_modules/
+out/
+release/
+test-results/
+playwright-report/
+.DS_Store
+*.log
+
+# Credentials and local libraries
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*.json
+ai-settings.json
+library-settings.json
+.library/
+*.sqlite
+*.sqlite-*
+*.db
+coverage/
