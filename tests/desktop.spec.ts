@@ -101,8 +101,19 @@ test('5,000 asset viewport remains virtualized; details preserve scroll position
     await expect(page.locator('.asset-count')).toHaveText('5,000 份素材')
     expect(await page.locator('.asset-tile').count()).toBeLessThan(80)
     expect(Number(await page.locator('.masonry').getAttribute('data-loaded'))).toBe(80)
-    await page.locator('.content-scroll').evaluate(el => { el.scrollTop = el.scrollHeight - el.clientHeight - 200 })
-    await expect.poll(async () => Number(await page.locator('.masonry').getAttribute('data-loaded'))).toBeGreaterThan(80)
+    // The new Electron window must be foregrounded and measured before scrolling.
+    await page.bringToFront()
+    await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))))
+    const scroll = page.locator('.content-scroll')
+    console.log('Large-library geometry before scroll:', await scroll.evaluate(el => ({ top: el.scrollTop, height: el.clientHeight, scrollHeight: el.scrollHeight })))
+    await scroll.evaluate(el => { el.scrollTop = el.scrollHeight - el.clientHeight - 200 })
+    try {
+      await expect.poll(async () => Number(await page.locator('.masonry').getAttribute('data-loaded'))).toBeGreaterThan(80)
+    } catch (error) {
+      console.log('Large-library geometry after scroll:', await scroll.evaluate(el => ({ top: el.scrollTop, height: el.clientHeight, scrollHeight: el.scrollHeight })))
+      await page.screenshot({ path: 'test-results/pagination-failure.png' })
+      throw error
+    }
     const before = await page.locator('.content-scroll').evaluate(el => el.scrollTop)
     const visible = await page.locator('.asset-tile').evaluateAll(elements => {
       const match = elements.find(el => { const r = el.getBoundingClientRect(); return r.top > 185 && r.bottom < window.innerHeight })

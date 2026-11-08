@@ -2,7 +2,7 @@
 
 ## Purpose and current status
 
-Inspiration Library is a designer's personal tool for keeping visual references locally and finding them again. Development started in October 2026 through AI-assisted vibe coding. The public repository was opened in November 2026 with a clean history. The maintainer is [makefortune0905](https://github.com/makefortune0905).
+Inspiration Library is a designer's personal tool for keeping visual references locally and finding them again. Development started in October 2026. The maintainer is a designer with no programming background: they describe needs from their own design workflow and use Codex to implement the tool. According to the maintainer, Codex was the only AI coding tool used for the original development. The public repository was opened in November 2026 with a clean history. The maintainer is [makefortune0905](https://github.com/makefortune0905).
 
 The project is early-stage. Verified public adoption and download metrics are not available. No fixed review or release cadence is promised. The current workflow is Chinese-first and targets macOS Apple Silicon.
 
@@ -10,7 +10,7 @@ The project is early-stage. Verified public adoption and download metrics are no
 
 Codex assisted in preparing this public edition: inspecting publishable files for sensitive content, separating private history from source, documenting installation and privacy, examining dependency licenses, and running type checks, service tests and builds. The public edition also adds a reproducible GitHub Actions workflow. Public CI results are visible in Actions; an added workflow alone is not a passing result.
 
-Earlier feature-by-feature tool attribution has not been recorded. This document does not claim Codex authored every feature or that the project already has community users.
+The maintainer supplies the product requirements; Codex assists with implementation. This account of the original development comes from the maintainer, while public validation results are linked separately. Public community adoption has not yet been established.
 
 ## Maintenance workflow
 
