@@ -6,6 +6,12 @@ A local-first macOS visual reference library for designers. Import images, keep 
 
 [中文使用说明](README.zh-CN.md) · [Testing](VALIDATION.md) · [Roadmap](ROADMAP.md) · [Contributing](CONTRIBUTING.md) · [Maintainer notes](MAINTENANCE.md)
 
+## Preview
+
+![Visual reference grid using synthetic test images](docs/images/library.png)
+
+Screenshot from the automated Electron test using generated geometric images. No personal collection is shown.
+
 ## Status
 
 Early personal project, started in October 2026 by a designer through AI-assisted vibe coding. This public edition starts with a clean Git history. It does not include personal image libraries, credentials, or the private development history. Community adoption and long-term maintenance metrics have not been established.
@@ -62,7 +68,7 @@ React + TypeScript render the desktop UI. Electron owns native dialogs, clipboar
 
 ## Contribute
 
-Bug reports and small, focused pull requests are welcome in this public repository. Use synthetic examples, remove personal paths and credentials from logs, and include reproducible steps. See [CONTRIBUTING.md](CONTRIBUTING.md). No response-time or release schedule is promised.
+Bug reports and small, focused pull requests are welcome. Use synthetic examples, remove personal paths and credentials from logs, and include reproducible steps. See [CONTRIBUTING.md](CONTRIBUTING.md). No response-time or release schedule is promised.
 
 ## License
 

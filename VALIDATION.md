@@ -7,12 +7,20 @@ Environment: macOS Apple Silicon, official standalone Node.js 22.22.2, pnpm 11.0
 - `pnpm typecheck`: passed (initially run with Node.js 24.22.1).
 - `pnpm test`: 11 tests passed with Node.js 22.22.2; no live API calls or user libraries.
 - `pnpm build`: passed with Node.js 22.22.2; Rollup emitted non-fatal annotation warnings from Zod.
-- Desktop UI tests: not run; Electron runtime download failed in this environment. No desktop pass is claimed.
+- Desktop UI tests: all 4 passed on the GitHub-hosted macOS runner; see the CI evidence below. Local runtime installation was unavailable.
 - Packaged app: not built or verified in this public-edition check. No binary release is included.
 
 Installation initially hit registry download timeouts. A checksum-matching official registry tarball was fetched separately and supplied through a loopback-only temporary cache endpoint. The committed lockfile was restored byte-for-byte. Installation scripts were initially skipped, then esbuild/Sharp setup was run explicitly; Electron runtime installation failed with a network fetch error.
 
 The application's bundled tool runtime could not load native modules because of macOS signing restrictions. Standalone official Node.js resolved the service-test and build failures; no source change or system security change was needed.
+
+## Public CI evidence
+
+[macOS checks run 42481328688](https://github.com/makefortune0905/inspiration-library-oss/actions/runs/42481328688) passed on revision `de999af`: frozen-lockfile install, type check, 11 service tests, production build and all four Electron desktop scenarios. The runner uses Node.js 22.22.2 and pnpm 11.0.0.
+
+The first CI run passed the service tests and three desktop scenarios, but the pagination test timed out. The test now brings the new window to the foreground and waits for two animation frames before scrolling, allowing the virtualized layout to be measured. The original pagination and scroll-preservation assertions remain in place; diagnostics are recorded on failure. The subsequent complete run passed. No application code was changed to bypass the assertion.
+
+The README screenshot comes from a desktop test with generated geometric images. It contains no personal collection. Build artifacts and desktop diagnostics are retained in Actions for seven days; screenshots selected for the README are stored in `docs/images/`.
 
 ## Test scope
 
