@@ -1,8 +1,10 @@
 # Inspiration Library · 灵感库
 
+[![macOS checks](https://github.com/makefortune0905/inspiration-library-oss/actions/workflows/ci.yml/badge.svg)](https://github.com/makefortune0905/inspiration-library-oss/actions/workflows/ci.yml)
+
 A local-first macOS visual reference library for designers. Import images, keep originals on disk, and find references through local keywords or optional AI-assisted analysis and search.
 
-[中文使用说明](README.zh-CN.md) · [Testing](VALIDATION.md) · [Roadmap](ROADMAP.md) · [Contributing](CONTRIBUTING.md)
+[中文使用说明](README.zh-CN.md) · [Testing](VALIDATION.md) · [Roadmap](ROADMAP.md) · [Contributing](CONTRIBUTING.md) · [Maintainer notes](MAINTENANCE.md)
 
 ## Status
 
@@ -32,7 +34,7 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-The repository URL above is the proposed public destination; it becomes usable only after publication. No API key is required to start the app or run automated tests.
+No API key is required to start the app or run automated tests.
 
 ## Build and test
 
@@ -60,7 +62,7 @@ React + TypeScript render the desktop UI. Electron owns native dialogs, clipboar
 
 ## Contribute
 
-Bug reports and small, focused pull requests are welcome once the public repository is available. Use synthetic examples, remove personal paths and credentials from logs, and include reproducible steps. See [CONTRIBUTING.md](CONTRIBUTING.md). No response-time or release schedule is promised.
+Bug reports and small, focused pull requests are welcome in this public repository. Use synthetic examples, remove personal paths and credentials from logs, and include reproducible steps. See [CONTRIBUTING.md](CONTRIBUTING.md). No response-time or release schedule is promised.
 
 ## License
 

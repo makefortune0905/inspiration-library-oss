@@ -9,3 +9,5 @@ Never attach a personal library, SQLite database, API key, provider credential f
 Dependencies and new image assets must have a redistribution-compatible license and retain required notices. Contributions are provided under the project MIT license; contribute only material you are entitled to share.
 
 This is an early personal project. Review and release timing depend on maintainer availability.
+
+Pull requests and pushes to main run the macOS checks workflow. It uses synthetic images and local mock AI, requires no API keys, and retains test diagnostics for seven days. Check the actual run status before treating the revision as verified.

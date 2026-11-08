@@ -1,0 +1,25 @@
+name: Bug report
+description: Report a reproducible problem without private data.
+body:
+  - type: markdown
+    attributes:
+      value: "Use synthetic examples. Do not attach private images, databases, credentials or unredacted paths."
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: macOS version, chip, Node/pnpm versions and commit.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include expected behavior and what actually happened.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Redacted diagnostics
+      description: Optional error messages or screenshots of synthetic images only.
